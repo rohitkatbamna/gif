@@ -9,8 +9,8 @@ function Modalbutton({ setPostobj }) {
 	function handlePost() {
 		document.getElementById("posttext").value = "";
 		setPostobj((prev) => [
-			...prev,
 			{ text: textmsg, gifurl: gifurl, giftitle: gifalt },
+			...prev,
 		]);
 		setGifalt("");
 		setGifurl("");

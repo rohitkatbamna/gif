@@ -8,7 +8,7 @@ function Post({ image, text, title }) {
 			style={{ borderRadius: "18px" }}>
 			<div className="card-body">
 				<img src={image} alt={title} />
-				<h1 className="text-left">{text}</h1>
+				<h6 className="text-left">{text}</h6>
 			</div>
 		</div>
 	);

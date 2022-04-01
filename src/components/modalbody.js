@@ -30,7 +30,13 @@ function Modalbody({
 			{gifurl === "" ? (
 				<></>
 			) : (
-				<img src={gifurl} alt={gifalt} className="mt-5" />
+				<img
+					src={gifurl}
+					alt={gifalt}
+					className="mt-5"
+					height="auto"
+					width="300"
+				/>
 			)}
 			<div className="mt-5">
 				<button

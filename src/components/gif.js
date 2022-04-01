@@ -4,7 +4,7 @@ function Gif({ setGifurl, setGifalt }) {
 	const [gif, setGif] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [search, setSearch] = useState("");
-	const api = "sXpGFDGZs0Dv1mmNFvYaGUvYwKX0PWIh";
+	const api = "8QAZzSOAbMjRpzfBntWo0LbdR8qhoQGH";
 	let searchvalue;
 	const givedata = {
 		method: "GET",
@@ -30,8 +30,10 @@ function Gif({ setGifurl, setGifalt }) {
 		setOffset(0);
 		document.getElementById("inputext").value = "";
 	}
+
 	useEffect(() => {
 		Fetching();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [offset, search]);
 	if (gif[0] === undefined) {
 		return (
