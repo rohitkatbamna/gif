@@ -3,8 +3,18 @@ import profileimg from "../assets/user.png";
 import "../scss/modalbody.scss";
 import Gif from "./gif";
 
-function Modalbody() {
+function Modalbody({
+	setPostobj,
+	setTextmsg,
+	setGifurl,
+	setGifalt,
+	gifurl,
+	gifalt,
+}) {
 	const [wantgif, setWantgif] = useState(false);
+	function handleChange(event) {
+		setTextmsg(event.target.value);
+	}
 	return (
 		<>
 			<div className="modal_body_all_of_it">
@@ -14,10 +24,13 @@ function Modalbody() {
 					height="50"
 					width="50"
 				/>
-				<div contentEditable="true" style={{ border: "4px solid black" }}>
-					<input style={{ border: "none" }} />
-				</div>
+				<input type="text" onChange={handleChange} />
 			</div>
+			{gifurl === "" ? (
+				<></>
+			) : (
+				<img src={gifurl} alt={gifalt} className="mt-5" />
+			)}
 			<div className="mt-5">
 				<button
 					type="button"
@@ -25,7 +38,7 @@ function Modalbody() {
 					onClick={() => setWantgif(wantgif ? false : true)}>
 					Gif
 				</button>
-				{wantgif ? <Gif /> : <></>}
+				{wantgif ? <Gif setGifurl={setGifurl} setGifalt={setGifalt} /> : <></>}
 			</div>
 		</>
 	);

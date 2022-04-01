@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Gif() {
+function Gif({ setGifurl, setGifalt }) {
 	const [gif, setGif] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [search, setSearch] = useState("");
@@ -83,6 +83,11 @@ function Gif() {
 								height={100}
 								width={200}
 								alt={gifobj.title}
+								onClick={() => {
+									setGifurl(gifobj.images.preview_gif.url);
+									setGifalt(gifobj.title);
+								}}
+								style={{ cursor: "pointer" }}
 							/>
 						</div>
 					);

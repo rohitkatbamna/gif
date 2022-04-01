@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import profileimg from "../assets/user.png";
 import Modalbody from "./modalbody";
 
-function Modalbutton() {
+function Modalbutton({ setPostobj }) {
+	const [gifurl, setGifurl] = useState("");
+	const [textmsg, setTextmsg] = useState("");
+	const [gifalt, setGifalt] = useState("");
+	function handlePost() {
+		setPostobj((prev) => [
+			...prev,
+			{ text: textmsg, gifurl: gifurl, giftitle: gifalt },
+		]);
+		setGifalt("");
+		setGifurl("");
+		textmsg("");
+	}
 	return (
 		<>
 			<button
@@ -49,16 +61,21 @@ function Modalbutton() {
 								aria-label="Close"></button>
 						</div>
 						<div className="modal-body">
-							<Modalbody />
+							<Modalbody
+								setPostobj={setPostobj}
+								setTextmsg={setTextmsg}
+								setGifurl={setGifurl}
+								setGifalt={setGifalt}
+								gifurl={gifurl}
+								gifalt={gifalt}
+							/>
 						</div>
 						<div className="modal-footer">
 							<button
 								type="button"
-								className="btn btn-secondary"
-								data-bs-dismiss="modal">
-								Close
-							</button>
-							<button type="button" className="btn btn-primary">
+								className="btn btn-primary"
+								data-bs-dismiss="modal"
+								onClick={handlePost}>
 								Post
 							</button>
 						</div>
