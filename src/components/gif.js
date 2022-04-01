@@ -74,6 +74,7 @@ function Gif({ setGifurl, setGifalt }) {
 					Search
 				</button>
 			</div>
+			{url === trendurl ? <p>Trending Gifs</p> : <></>}
 			<div className="row">
 				{gif.map((gifobj) => {
 					return (
