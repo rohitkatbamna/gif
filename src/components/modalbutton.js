@@ -7,13 +7,14 @@ function Modalbutton({ setPostobj }) {
 	const [textmsg, setTextmsg] = useState("");
 	const [gifalt, setGifalt] = useState("");
 	function handlePost() {
+		document.getElementById("posttext").value = "";
 		setPostobj((prev) => [
 			...prev,
 			{ text: textmsg, gifurl: gifurl, giftitle: gifalt },
 		]);
 		setGifalt("");
 		setGifurl("");
-		textmsg("");
+		setTextmsg("");
 	}
 	return (
 		<>
@@ -36,7 +37,7 @@ function Modalbutton({ setPostobj }) {
 						className="form-control"
 						aria-label="Sizing example input"
 						aria-describedby="inputGroup-sizing-lg"
-						value="Write Something..."
+						value="Post Something"
 						style={{ cursor: "pointer" }}
 					/>
 				</div>

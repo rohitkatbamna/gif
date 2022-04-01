@@ -1,0 +1,14 @@
+.post_all_of_it {
+	.card-body {
+		img {
+			width: 300px;
+			height: auto;
+		}
+		@media only screen and (max-width: 356px) {
+			img {
+				width: 200px;
+				height: auto;
+			}
+		}
+	}
+}

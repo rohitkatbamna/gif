@@ -15,6 +15,7 @@ function Modalbody({
 	function handleChange(event) {
 		setTextmsg(event.target.value);
 	}
+
 	return (
 		<>
 			<div className="modal_body_all_of_it">
@@ -24,7 +25,7 @@ function Modalbody({
 					height="50"
 					width="50"
 				/>
-				<input type="text" onChange={handleChange} />
+				<input type="text" onChange={handleChange} id="posttext" />
 			</div>
 			{gifurl === "" ? (
 				<></>

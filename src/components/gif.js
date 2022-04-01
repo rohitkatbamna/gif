@@ -84,7 +84,7 @@ function Gif({ setGifurl, setGifalt }) {
 								width={200}
 								alt={gifobj.title}
 								onClick={() => {
-									setGifurl(gifobj.images.preview_gif.url);
+									setGifurl(gifobj.images.original.url);
 									setGifalt(gifobj.title);
 								}}
 								style={{ cursor: "pointer" }}
