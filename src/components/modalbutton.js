@@ -7,7 +7,7 @@ function Modalbutton() {
 		<>
 			<button
 				type="button"
-				className="btn "
+				className="btn"
 				data-bs-toggle="modal"
 				data-bs-target="#exampleModal">
 				<div className="input-group input-group-lg">
