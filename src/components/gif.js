@@ -14,11 +14,9 @@ function Gif({ setGifurl, setGifalt }) {
 	let url = search === "" ? trendurl : searchurl;
 	function Fetching() {
 		console.log("Begin Fetching");
-		console.log(searchurl);
 		fetch(url, givedata)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log(data);
 				setGif(data.data);
 			});
 	}
@@ -95,20 +93,24 @@ function Gif({ setGifurl, setGifalt }) {
 					);
 				})}
 			</div>
-			<div className="row ms-auto me-auto">
-				<button
-					type="button"
-					className="btn btn-danger col-2 mt-3 me-2"
-					onClick={() => setOffset((prev) => (prev === 0 ? prev : prev - 5))}
-					disabled={offset === 0 ? true : false}>
-					Prev
-				</button>
-				<button
-					type="button"
-					className="btn btn-primary col-2 mt-3"
-					onClick={() => setOffset((prev) => prev + 5)}>
-					Next
-				</button>
+			<div className="row">
+				<div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-3">
+					<button
+						type="button"
+						className="btn btn-danger mt-3 me-2"
+						onClick={() => setOffset((prev) => (prev === 0 ? prev : prev - 5))}
+						disabled={offset === 0 ? true : false}>
+						Prev
+					</button>
+				</div>
+				<div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-3">
+					<button
+						type="button"
+						className="btn btn-primary mt-3"
+						onClick={() => setOffset((prev) => prev + 5)}>
+						Next
+					</button>
+				</div>
 			</div>
 		</div>
 	);
