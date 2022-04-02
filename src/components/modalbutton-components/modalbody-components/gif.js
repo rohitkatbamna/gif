@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Fetching } from "../../../utils/data";
+
 function Gif({ setGifurl, setGifalt }) {
 	const [gif, setGif] = useState([]);
 	const [offset, setOffset] = useState(0);
@@ -72,7 +73,12 @@ function Gif({ setGifurl, setGifalt }) {
 					Search
 				</button>
 			</div>
-
+			<div className="row">
+				{" "}
+				<div className="col">
+					{search === "" ? <p className="fw-bold">Trending Results</p> : <></>}
+				</div>
+			</div>
 			<div className="row">
 				{gif.map((gifobj) => {
 					return (

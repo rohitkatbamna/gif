@@ -22,7 +22,6 @@ function url(search, offset) {
 }
 export async function Fetching(search, offset) {
 	console.log("Begin Fetching");
-
 	let fetvalue = await fetch(url(search, offset), givedata)
 		.then((response) => response.json())
 		.then((responseData) => {
