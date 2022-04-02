@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import profileimg from "../assets/user.png";
-import Modalbody from "./modalbody";
+import Modalbody from "./modalbutton-components/modalbody";
 
 function Modalbutton({ setPostobj }) {
 	const [gifurl, setGifurl] = useState("");

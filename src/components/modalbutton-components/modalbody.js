@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import profileimg from "../assets/user.png";
-import "../scss/modalbody.scss";
-import Gif from "./gif";
+import profileimg from "../../assets/user.png";
+import "../../scss/modalbody.scss";
+import Gif from "./modalbody-components/gif";
 
 function Modalbody({
 	setPostobj,
