@@ -4,8 +4,10 @@ function Gif({ setGifurl, setGifalt }) {
 	const [gif, setGif] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [search, setSearch] = useState("");
+	const [count, setCount] = useState(NaN);
 	const api = "8QAZzSOAbMjRpzfBntWo0LbdR8qhoQGH";
 	let searchvalue;
+	let countvalue;
 	const givedata = {
 		method: "GET",
 	};
@@ -16,8 +18,10 @@ function Gif({ setGifurl, setGifalt }) {
 		console.log("Begin Fetching");
 		fetch(url, givedata)
 			.then((response) => response.json())
-			.then((data) => {
-				setGif(data.data);
+			.then((responseData) => {
+				setCount(responseData.pagination.total_count);
+				console.log(count);
+				setGif(responseData.data);
 			});
 	}
 	function handleChange(event) {
@@ -28,7 +32,7 @@ function Gif({ setGifurl, setGifalt }) {
 		setOffset(0);
 		document.getElementById("inputext").value = "";
 	}
-
+	console.log(count, offset);
 	useEffect(() => {
 		Fetching();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,7 +56,15 @@ function Gif({ setGifurl, setGifalt }) {
 					</button>
 				</div>
 				<div className="row">
-					<h6 className="col mt-3 fw-bold fs-4">Found Nothing Search Again</h6>
+					{offset > count ? (
+						<h6 className="col mt-3 fw-bold fs-4">
+							End of line Serach something Else
+						</h6>
+					) : (
+						<h6 className="col mt-3 fw-bold fs-4">
+							Found Nothing Search Again
+						</h6>
+					)}
 				</div>
 			</div>
 		);
