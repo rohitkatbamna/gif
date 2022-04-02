@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from "react";
-
+import { Fetching } from "../../../utils/data";
 function Gif({ setGifurl, setGifalt }) {
 	const [gif, setGif] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [search, setSearch] = useState("");
 	const [count, setCount] = useState(NaN);
-	const api = "8QAZzSOAbMjRpzfBntWo0LbdR8qhoQGH";
 	let searchvalue;
-	let countvalue;
-	const givedata = {
-		method: "GET",
-	};
-	let trendurl = `https://api.giphy.com/v1/gifs/trending?api_key=${api}&limit=5&offset=${offset}`;
-	let searchurl = `https://api.giphy.com/v1/gifs/search?api_key=${api}&q=${search}&limit=5&offset=${offset}`;
-	let url = search === "" ? trendurl : searchurl;
-	function Fetching() {
-		console.log("Begin Fetching");
-		fetch(url, givedata)
-			.then((response) => response.json())
-			.then((responseData) => {
-				setCount(responseData.pagination.total_count);
-				console.log(count);
-				setGif(responseData.data);
-			});
-	}
 	function handleChange(event) {
 		searchvalue = event.target.value;
 	}
@@ -32,11 +14,15 @@ function Gif({ setGifurl, setGifalt }) {
 		setOffset(0);
 		document.getElementById("inputext").value = "";
 	}
-	console.log(count, offset);
+	async function returnData(offset, search) {
+		let newdata = await Fetching(offset, search);
+		setGif(newdata.data);
+		setCount(newdata.pagination.total_count);
+	}
 	useEffect(() => {
-		Fetching();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		returnData(offset, search);
 	}, [offset, search]);
+
 	if (gif[0] === undefined) {
 		return (
 			<div className="container-fluid mt-2">
@@ -86,7 +72,7 @@ function Gif({ setGifurl, setGifalt }) {
 					Search
 				</button>
 			</div>
-			{url === trendurl ? <p>Trending Gifs</p> : <></>}
+
 			<div className="row">
 				{gif.map((gifobj) => {
 					return (
