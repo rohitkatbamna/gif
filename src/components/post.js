@@ -8,7 +8,9 @@ function Post({ image, text, title }) {
 			style={{ borderRadius: "18px" }}>
 			<img src={image} alt={title} className="card-img-top" />
 			<div className="card-body">
-				<h6 className="mt-3">{text}</h6>
+				<p className="mt-3 fs-5" style={{ fontWeight: "600" }}>
+					{text}
+				</p>
 			</div>
 		</div>
 	);
