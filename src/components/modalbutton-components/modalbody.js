@@ -38,7 +38,7 @@ function Modalbody({
 					width="300"
 				/>
 			)}
-			<div className="mt-5">
+			<div className="mt-5 text-center">
 				<button
 					type="button"
 					className="btn btn-primary"

@@ -21,7 +21,7 @@ function Gif({ setGifurl, setGifalt }) {
 		setCount(newdata.pagination.total_count);
 	}
 	useEffect(() => {
-		returnData(offset, search);
+		returnData(search, offset);
 	}, [offset, search]);
 
 	if (gif[0] === undefined) {
@@ -82,7 +82,7 @@ function Gif({ setGifurl, setGifalt }) {
 			<div className="row">
 				{gif.map((gifobj) => {
 					return (
-						<div className="col m-1">
+						<div className="col-6 mt-1">
 							<img
 								src={gifobj.images.preview_gif.url}
 								height={100}

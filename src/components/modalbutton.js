@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import profileimg from "../assets/user.png";
 import Modalbody from "./modalbutton-components/modalbody";
 
-function Modalbutton({ setPostobj }) {
+function Modalbutton({ postobj, setPostobj }) {
 	const [gifurl, setGifurl] = useState("");
 	const [textmsg, setTextmsg] = useState("");
 	const [gifalt, setGifalt] = useState("");
@@ -22,9 +22,13 @@ function Modalbutton({ setPostobj }) {
 				type="button"
 				className="btn"
 				data-bs-toggle="modal"
-				data-bs-target="#exampleModal">
+				data-bs-target="#exampleModal"
+				style={{ border: "none" }}>
 				<div className="input-group input-group-lg">
-					<span className="input-group-text" id="inputGroup-sizing-lg">
+					<span
+						className="input-group-text"
+						id="inputGroup-sizing-lg"
+						style={{ border: "none", background: "none" }}>
 						<img
 							src={profileimg}
 							alt="defualt user Freepik"
@@ -37,8 +41,12 @@ function Modalbutton({ setPostobj }) {
 						className="form-control"
 						aria-label="Sizing example input"
 						aria-describedby="inputGroup-sizing-lg"
-						value="Post Something"
-						style={{ cursor: "pointer" }}
+						value={
+							postobj[postobj.length - 1].text === ""
+								? "Post Something"
+								: textmsg
+						}
+						style={{ cursor: "pointer", border: "none" }}
 					/>
 				</div>
 			</button>
@@ -53,7 +61,7 @@ function Modalbutton({ setPostobj }) {
 					<div className="modal-content">
 						<div className="modal-header">
 							<h5 className="modal-title" id="exampleModalLabel">
-								Compost Post
+								Create post
 							</h5>
 							<button
 								type="button"
