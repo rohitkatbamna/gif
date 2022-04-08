@@ -1,5 +1,6 @@
 import React from "react";
 import "../scss/post.scss";
+import Commentsection from "./post-components/commentsection";
 
 function Post({ image, text, title }) {
 	return (
@@ -12,6 +13,7 @@ function Post({ image, text, title }) {
 					{text}
 				</p>
 			</div>
+			<Commentsection />
 		</div>
 	);
 }

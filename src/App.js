@@ -16,6 +16,7 @@ function App() {
 					</div>
 				</div>
 			</div>
+			<h1 className="text-center mt-3">Posts</h1>
 			<div className="row main_app_row_two">
 				{postobj.map((obj) => {
 					return (
